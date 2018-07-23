@@ -3,7 +3,6 @@ import './exchangelist.scss';
 import unconvertible from 'assets/weiduihuan.png'
 
 import iphone from 'assets/iphone/iphone.png'
-
 import data from 'assets/data/data.png'
 import twoclass from 'assets/twoclass/twoclass.png'
 import oneclass from 'assets/oneclass/oneclass.png'
