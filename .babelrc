@@ -1,0 +1,21 @@
+{
+    "plugins": [
+        "react-hot-loader/babel",
+        "@babel/plugin-transform-flow-strip-types",
+        "@babel/plugin-proposal-class-properties"
+    ],
+    "presets": [
+        [
+            "@babel/env",
+            {
+                "modules": false,
+                "targets": {
+                    "chrome": 40,
+                    "browsers": ["last 2 versions", "safari 7"]
+                },
+                "shippedProposals": true
+            }
+        ],
+        "@babel/react"
+    ]
+}
