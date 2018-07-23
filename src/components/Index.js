@@ -6,12 +6,12 @@ var classNames = require('classnames');
 class RowItem extends Component {
     render() {
         const { content, activedId } = this.props;
-        let nineItemClass = classNames('nine-content', {
+        let nineItemClass = classNames('nine-item', {
             'active': activedId === content.id ? true : false
         })
         return (
-            <div className={nineItemClass}>
-                <div className="nine-item">
+            <div className='nine-content' >
+                <div className={nineItemClass}>
                     <div className="nine-item_content">
                         <div className="nine-item_bgbox">
                             <div className={`nine-item_bg ${content.class}`}></div>
@@ -26,19 +26,18 @@ class RowItem extends Component {
 
 class RowBtn extends Component {
     render() {
-        const { content } = this.props;
+        const { content, beigin } = this.props;
         let nineItemClass = classNames('nine-item', {
             'active': content.isWinning ? true : false
         })
         return (
-            <div className='nine-content'>
+            <div className='nine-content' onClick={() => { beigin() }}>
                 <div className="nine-item normal">
                 </div>
             </div>
         )
     }
 }
-
 
 
 class BrokeRage extends Component {
@@ -98,7 +97,7 @@ class BrokeRage extends Component {
 
         }
     }
-    handleBegin() {
+    handleBegin = () => {
         // this.state.isRolling为false的时候才能开始抽，不然会重复抽取，造成无法预知的后果
         if (!this.state.isRolling) {
             // 点击抽奖之后，我个人做法是将于九宫格有关的状态都还原默认
@@ -114,9 +113,9 @@ class BrokeRage extends Component {
             })
         }
     }
-    handlePlay() {
+    handlePlay = () => {
         // 随机获取一个中奖ID
-        let prize = Math.floor(Math.random() * 12)
+        let prize = Math.floor(Math.random() * 7)
         console.log(prize)
         this.setState({
             prizeId: prize,
@@ -139,7 +138,6 @@ class BrokeRage extends Component {
                 })
                 return
             }
-
             // 以下是动画执行时对id的判断
             if (this.state.activedId === '') {
                 num = 0
@@ -160,12 +158,11 @@ class BrokeRage extends Component {
                     })
                 }
             }
-
             this.setState({
                 actTimes: this.state.actTimes + 1
             })
 
-        }, 1000)
+        }, 200)
     }
 
 
@@ -189,7 +186,7 @@ class BrokeRage extends Component {
                         </div>
                     </div>
                 </div>
-                <div onClick={() => this.handleBegin()}> 开始抽象</div>
+                {/* <div onClick={() => this.handleBegin()}> 开始抽象</div> */}
                 {/* 九宫格 */}
                 <div className="nine">
                     <div className="nine-container">
@@ -199,7 +196,7 @@ class BrokeRage extends Component {
                             <RowItem content={list[2]} activedId={activedId} />
 
                             <RowItem content={list[3]} activedId={activedId} />
-                            <RowBtn content={winning} />
+                            <RowBtn content={winning} beigin={this.handleBegin} />
                             <RowItem content={list[4]} activedId={activedId} />
 
                             <RowItem content={list[5]} activedId={activedId} />
@@ -218,12 +215,3 @@ class BrokeRage extends Component {
 
 export default BrokeRage;
 
-//   {/* phone */}
-//   <div className="nine-content">
-//   <div className="nine-item">
-//     <div className="nine-item_content">
-//       <div className="nine-item_bg"></div>
-//       <div className="nine-item_word">iphone</div>
-//     </div>
-//   </div>
-// </div>
