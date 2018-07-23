@@ -76,11 +76,11 @@ class Fillinfor extends Component {
     render() {
 
         return (
-            <main className="home-container">
+            <main className="fillinfor-container">
                 {/* <PublicHeader title='兑换奖品' record /> */}
-                <div className="common-title">请填写下方信息领取奖品</div>
-                <div className="common-title-1">奖品将于3-7个工作日寄出</div>
-                <form className="home-form">
+                <div className="fillinfor-title">请填写下方信息领取奖品</div>
+                <div className="fillinfor-title-1">奖品将于3-7个工作日寄出</div>
+                <form className="fillinfor-form">
 
                     <div className="content">
                         <span>收货人</span>

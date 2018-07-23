@@ -7,10 +7,10 @@ class Subsuccess extends Component {
     render() {
 
         return (
-            <main className="home-container">
-                <div className="common-title"><img src={Group}></img></div>
-                <div className="record-list">提交成功</div>
-                <div className="common-title-1">奖品将于3-7个工作日寄出</div>
+            <main className="subsuccess-container">
+                <div className="subsuccess-title"><img src={Group}></img></div>
+                <div className="subsuccess-list">提交成功</div>
+                <div className="subsuccess-title-1">奖品将于3-7个工作日寄出</div>
             </main>
         );
     }
