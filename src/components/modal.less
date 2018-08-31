@@ -1,0 +1,144 @@
+.win-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    background: rgba(0, 0, 0, .5); //display: none;
+    z-index: 100;
+    .win {
+        position: absolute;
+        width: 5.62rem;
+        max-width: 7.5rem;
+        top: 50%;
+        left: 50%;
+        padding-top: .8rem; // overflow: hidden;
+        transform: translateX(-50%) translateY(-50%);
+        background: #fff;
+        border-radius: 0.2rem;
+        .congratulate {
+            position: absolute;
+            top: -0.8rem;
+            left: -0.1rem;
+            height: 1.6rem;
+            width: 5.8rem;
+            background: url('../assets/congratulate/congratulate.png') no-repeat center top;
+            background-size: 100% auto;
+        }
+        .box {
+            position: relative;
+            height: 4.06rem/* 203/50 */
+            ;
+            background: url('../assets/cicle.png') no-repeat center top;
+            .imgbox {
+                position: absolute;
+                width: 2.64rem/* 132/50 */
+                ;
+                height: 2.64rem/* 132/50 */
+                ;
+                margin: 0 auto;
+                text-align: center;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .title {
+            margin: 0 auto;
+            font-size: .28rem;
+            text-align: center;
+        }
+        .content {
+            box-sizing: border-box;
+            height: 2.84rem/* 142/50 */
+            ;
+            padding: .32rem/* 16/50 */
+            ;
+            background-color: #fd8e00;
+            border-bottom-left-radius: 0.2rem;
+            border-bottom-right-radius: 0.2rem;
+            p {
+                color: white;
+                font-size: .32rem/* 16/50 */
+                ;
+            }
+        }
+        .btnbox {
+            margin-top: .56rem/* 28/50 */
+            ;
+            .btn {
+                width: 4.7rem/* 235/50 */
+                ;
+                height: .88rem/* 44/50 */
+                ;
+                margin: 0 auto;
+                background-color: #fd8e00;
+                border-radius: .44rem/* 22/50 */
+                ;
+                text-align: center;
+                line-height: .88rem/* 44/50 */
+                ;
+                font-size: .36rem/* 18/50 */
+                ;
+                color: white;
+                margin-bottom: .48rem/* 24/50 */
+                ;
+            }
+        }
+        .close {
+            position: absolute;
+            bottom: -1.5rem/* 75/50 */
+            ;
+            left: 50%;
+            margin-left: -.4rem/* 20/50 */
+            ;
+            height: 1.5rem/* 75/50 */
+            ;
+            width: .8rem/* 40/50 */
+            ;
+            background: url('../assets/close.png') no-repeat center top;
+            background-size: 100% auto;
+        }
+    }
+}
+
+.modal-mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    position: fixed;
+    top: 2.58rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 5.4rem;
+    height: 5.6rem; // background: url(./assets/modal-bg.png) no-repeat;
+    background-size: contain !important;
+    z-index: 900;
+}
+
+.modal-content-box {
+    width: 5.02rem;
+    height: 4.16rem;
+    margin: 0 auto;
+    margin-top: 1.44rem;
+    padding: 0 .25rem;
+    overflow-y: scroll;
+    position: relative;
+    z-index: 1000;
+}
+
+.modal {
+    height: 100%;
+    width: 100%;
+}

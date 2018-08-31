@@ -1,0 +1,294 @@
+:global {
+.goodstudent {
+  position: relative;
+  background: #e0e8ff;
+  overflow: hidden;
+  background-image: url('../assets/background/bg_l.png'), url('../assets/background/bg_r.png');
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: left 8.2rem, right 13.6rem;
+  .banner {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 8.18rem;
+    /* 409/50 */
+    background: url('../assets/banner/banner.png') no-repeat center center;
+    background-size: 100%;
+  } // 提示信息
+  .btnlist {
+    position: absolute;
+    right: 0;
+    bottom: .36rem/* 18/50 */
+    ;
+    height: .7rem/* 35/50 */
+    ;
+    width: 1.76rem/* 88/50 */
+    ;
+    background: url('../assets/listbtn.png') no-repeat center center;
+    background-size: 100%;
+  }
+   // 九宫格
+  .nine {
+    position: relative;
+    width: 100%;
+    .nine-container {
+      position: relative;
+      width: 7.1rem/* 355/50 */
+      ;
+      height: 7.72rem/* 386/50 */
+      ;
+      clear: both;
+      margin: 0 auto;
+      background: url('../assets/lottery/lottery.png') no-repeat center center;
+      background-size: 100%;
+      .nine-box {
+        position: absolute;
+        top: 1.12rem/* 56/50 */
+        ;
+        left: 1.08rem/* 54/50 */
+        ;
+        .nine-content {
+          float: left;
+          margin-right: .16rem/* 8/50 */
+          ;
+          margin-bottom: .16rem/* 8/50 */
+          ;
+          .nine-item {
+            float: left;
+            box-sizing: border-box;
+            background-color: #0ebaff;
+            width: 1.68rem/* 84/50 */
+            ;
+            height: 1.68rem/* 84/50 */
+            ;
+            border: .08rem/* 4/50 */
+            solid #0ebaff;
+            border-radius: .08rem/* 4/50 */
+            ;
+            &.active {
+              border: .08rem/* 4/50 */
+              solid #ffee00;
+            }
+            &.normal {
+              border: none;
+              background: url('../assets/btn/btn.png') no-repeat center center;
+            }
+            &.disabled {
+              padding: .24rem/* 12/50 */
+              ;
+              color: white;
+              text-align: center;
+              font-size: .28rem/* 14/50 */
+              ;
+              border: none;
+              background: url('../assets/disabled/disabled.png') no-repeat center center;
+            }
+            .nine-item_content {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              .nine-item_bgbox {
+                flex: 1.2rem/* 60/50 */
+                0 0;
+              }
+              .nine-item_bg {
+                &.iphone {
+                  height: .96rem/* 48/50 */
+                  ;
+                  width: .82rem/* 41/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .2rem/* 10/50 */
+                  ;
+                  background: url('../assets/iphone/iphone.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.data {
+                  height: .94rem/* 53/50 */
+                  ;
+                  width: 1.06rem/* 47/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .16rem/* 8/50 */
+                  ;
+                  background: url('../assets/data/data.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.twoclass {
+                  height: .92rem/* 46/50 */
+                  ;
+                  width: .86rem/* 43/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .2rem/* 10/50 */
+                  ;
+                  background: url('../assets/twoclass/twoclass.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.oneclass {
+                  height: .48rem/* 24/50 */
+                  ;
+                  width: .88rem/* 44/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .46rem/* 23/50 */
+                  ;
+                  background: url('../assets/oneclass/oneclass.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.fly {
+                  height: .58rem/* 29/50 */
+                  ;
+                  width: 1.24rem/* 62/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .36rem/* 18/50 */
+                  ;
+                  background: url('../assets/fly/fly.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.boss {
+                  height: .96rem/* 48/50 */
+                  ;
+                  width: .82rem/* 41/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .18rem/* 9/50 */
+                  ;
+                  background: url('../assets/boss/boss.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.englishclass {
+                  height: .96rem/* 48/50 */
+                  ;
+                  width: .94rem/* 47/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .22rem/* 11/50 */
+                  ;
+                  background: url('../assets/englishclass/englishclass.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.bodymony {
+                  height: .64rem/* 32/50 */
+                  ;
+                  widows: 1.22rem/* 61/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .4rem/* 20/50 */
+                  ;
+                  background: url('../assets/bodymony/bodymony.png') no-repeat center center;
+                  background-size: cover;
+                }
+              }
+              .nine-item_word {
+                color: white;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+      .topicon {
+        position: absolute;
+        width: 1.74rem/* 87/50 */
+        ;
+        height: 1.76rem/* 88/50 */
+        ;
+        right: -.24rem/* 12/50 */
+        ;
+        top: -.24rem;
+        z-index: 100;
+        background: url('../assets/100/100%.png') no-repeat center center;
+        background-size: 100%;
+      }
+    }
+  } // 奖品列表
+  .prizes-list {
+    position: relative;
+    background: url('../assets/background/bg_dark.png') no-repeat center 102%;
+    background-size: 100% auto;
+    .prizes-container {
+      width: 6.94rem;
+      height: 9rem; //margin: 0 0.46rem 0 0.14rem;
+      margin: 0 auto;
+      background: url('../assets/prizes/prizes.png') no-repeat center top;
+      background-size: 100% auto;
+      .title {
+        width: 100%;
+        text-align: center;
+        font-size: 0.48rem;
+        color: #ffe200;
+        padding: 0.44rem 0;
+      }
+      .prizes-box {
+        width: 100%;
+        padding: 0 0.4rem 0 0.6rem;
+        box-sizing: border-box;
+        ul,
+        li {
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          overflow: hidden;
+        }
+        li>p {
+          float: left;
+          font-size: 0.32rem;
+          margin-bottom: 0.3rem;
+        }
+        li:not(:first-child) {
+          color: #cce0f8;
+        }
+        li:first-child {
+          color: #80b3ed;
+        }
+        .prizes {
+          width: 60%;
+        }
+        .rate {
+          width: 20%;
+          text-align: center;
+        }
+        .sum {
+          width: 20%;
+          text-align: right;
+        }
+      }
+    }
+  }
+  .rule {
+    color: #ffffff;
+    background: #3001b8;
+    font-size: 0.28rem;
+    padding: 0.2rem 0.72rem 0.74rem;
+    line-height: 0.4rem;
+    .title {
+      font-size: 0.32rem;
+      margin: 0.48rem 0 0.24rem;
+    }
+    .highlight {
+      color: #ffec00;
+    }
+  }
+  .fotter {
+    height: 0.54rem;
+    background: #2635d1;
+    color: #929ae8;
+    text-align: center;
+    font-size: 0.24rem;
+    line-height: 0.54rem;
+  }
+  .classInfor {
+    position: relative;
+    text-align: center;
+    font-size: .28rem/* 14/50 */
+    ;
+    color: rgba(102, 102, 102, 1);
+    line-height: .4rem/* 20/50 */
+    ;
+    top: -.4rem/* 20/50 */
+    ;
+  }
+}
+}

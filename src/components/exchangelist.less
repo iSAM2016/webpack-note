@@ -1,0 +1,73 @@
+html {
+    background: rgba(244, 244, 244, 1);
+}
+
+.exchangelist-container {
+    width: 100%; // background: rgba(244, 244, 244, 1); //中奖纪录
+    .exchangelist-title {
+        width: 89.4%;
+        height: 100vh;
+        margin: 0 auto; // margin-top: 1.28rem;
+    } //图片大小
+    .exchangelist-title img {
+        width: 100%;
+        height: 2.2rem;
+        margin: 0 auto;
+        margin-top: .32rem;
+    }
+    .exchangelist {
+        width: 100%;
+        height: 2.2rem;
+        margin: 0 auto;
+        margin-top: -2.2rem;
+    } //iPhone_img_content
+    .exchangelist-title-img {
+        float: left;
+        width: 21.3334%;
+        height: 1.6rem;
+        position: absolute;
+        margin: 0.3rem 4.8rem .3rem .3rem;
+    } //iPhone_img
+    .exchangelist-title-img img {
+        width: 1.24rem;
+        height: 1.44rem;
+        position: absolute;
+        left: .16rem;
+        right: .2rem;
+        bottom: .08rem;
+    } //iphoneX文字
+    .span {
+        position: absolute;
+        display: inline-block;
+        width: 37.3%;
+        height: .44rem;
+        float: left;
+        margin: .62rem 3.22rem 1.14rem 2.2rem;
+        font-size: .32rem;
+        font-family: PingFangSC-Regular;
+        color: rgba(51, 51, 51, 1);
+        line-height: .44rem;
+    }
+    span {
+        display: block;
+    } //number
+    .number {
+        display: block;
+        width: 37.3%;
+        height: .4rem;
+    } //点击兑换
+    .exchangelist .exchangelist-click {
+        display: inline-block;
+        margin: .9rem .2rem .86rem 5.1rem;
+        width: 20%;
+        height: .44rem;
+        text-align: center;
+        font-size: .32rem;
+        font-family: PingFangSC-Medium;
+        color: black;
+        line-height: .32rem;
+        &.active {
+            color: rgba(253, 142, 0, 1);
+        }
+    }
+}

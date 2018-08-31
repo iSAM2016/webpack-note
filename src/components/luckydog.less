@@ -1,0 +1,48 @@
+.inforbox {
+  margin-top: .18rem /* 9/50 */
+;
+  margin-bottom: .72rem /* 36/50 */
+;
+  .inforbox-box {
+    display: flex;
+    width: 6.6rem /* 330/50 */
+  ;
+    height: .8rem /* 40/50 */
+  ;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 1);
+    border-radius: .4rem /* 20/50 */
+  ; // 小喇叭
+    .inforbox-speaker {
+      flex: 1.1rem /* 55/50 */
+      0 0;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      .icon {
+        height: .32rem /* 16/50 */
+      ;
+        width: .3rem /* 15/50 */
+      ;
+        background: url('../assets/speaker/speaker.png') no-repeat center center;
+      }
+    }
+    // 通知内容
+    .inforbox-content {
+      position: relative;
+      overflow: hidden;
+      .inforbox-item {
+        height: .8rem /* 40/50 */
+        ;
+        width: 100%;
+      ;
+        line-height: .8rem;
+        font-size: .28rem /* 14/50 */
+      ;
+      }
+      .swiper-wrapper {
+        //width: 100%;
+      }
+    }
+  }
+}
