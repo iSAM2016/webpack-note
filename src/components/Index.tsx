@@ -2,12 +2,45 @@ import React, { Component } from 'react';
 import './index.less';
 import Modal from './modal'
 // import Luckydog from './Luckydog'
-import request from 'utils/request'
+// import request from 'utils/request'
 import List from 'utils'
 import { hashHistory } from 'react-router';
 const classNames = require('classnames');
+interface brokeRageState {
+    is_modal_visible: boolean,
+    is_goto_lottery: boolean,//是否允许抽奖: true
+    finish_class_num: number,   // 已经上的课程数
+    needcourse: number,   // 差的课数
+    lottery_number: number,// 可以抽几次奖
+    award_info_id: number,// 中奖ID
+    chose_pro: {
+        id: number,
+        content: string,
+        isvirtual: boolean,
+        class: boolean,
+        award_id: number, // 产品id
+        name: string,
+    },// 选中的产品
+    activedId: number,
+    prizeId: number,
+    times: number,
+    actTimes: number,
+    isRolling: boolean,
+}
+
+interface RowItemProps {
+    content: any;
+    activedId: number;
+}
+
+interface RowBtnProps {
+    needcourse: number;
+    beigin: any;
+    is_goto_lottery: boolean;
+}
+
 // Item组件--所有格子的操作都可以在此进行，如果这些操作都能与"activedId"关联就更好了
-class RowItem extends Component {
+class RowItem extends Component<RowItemProps, {}> {
     render() {
         const { content, activedId } = this.props;
         let nineItemClass = classNames('nine-item', {
@@ -27,7 +60,7 @@ class RowItem extends Component {
         )
     }
 }
-class RowBtn extends Component {
+class RowBtn extends Component<RowBtnProps, {}> {
     render() {
         const { needcourse, beigin, is_goto_lottery } = this.props;
         let nineItemClass = classNames('nine-item', {
@@ -52,32 +85,33 @@ class RowBtn extends Component {
         )
     }
 }
-class BrokeRage extends Component {
-    constructor() {
-        super()
+
+class BrokeRage extends Component<{}, brokeRageState> {
+    begin: any;
+    constructor(props: any) {
+        super(props)
         this.state = {
             is_modal_visible: false,
             is_goto_lottery: false,//是否允许抽奖: true
-            finish_class_num: '',   // 已经上的课程数
-            needcourse: '',   // 差的课数
-            lottery_number: '',// 可以抽几次奖
-            award_info_id: '',// 中奖ID
+            finish_class_num: 0,   // 已经上的课程数
+            needcourse: 0,   // 差的课数
+            lottery_number: 0,// 可以抽几次奖
+            award_info_id: 0,// 中奖ID
             chose_pro: {
-                id: '',
+                id: 0,
                 content: '',
-                isvirtual: '',
-                class: '',
-                award_id: '', // 产品id
+                isvirtual: false,
+                class: false,
+                award_id: 0, // 产品id
                 name: '',
             },// 选中的产品
             // 被选中的格子的ID
-            activedId: '',
+            activedId: 0,
             // 中奖ID
-            prizeId: null,
+            prizeId: 0,
             // 获得prizeId之后计算出的动画次数
             times: 0,
             // 当前动画次数
-
             actTimes: 0,
             // 是否正在抽奖
             isRolling: false,
@@ -91,10 +125,8 @@ class BrokeRage extends Component {
             if (true) {
                 resolve(12);
             } else {
-                reject(error);
             }
         });
-
         promise.then(function (value) {
             console.log(value)
             // success
@@ -104,18 +136,13 @@ class BrokeRage extends Component {
         }).then((data) => {
             console.log(data)
         });
-
-
-
-
-
         this.getLotteryInfor();// 获取数据
     }
     //弹框控制
-    handleModalToggle = (flag) => {
+    handleModalToggle = (flag: boolean): void => {
         this.setState({
-            activedId: '',
-            prizeId: null,
+            activedId: 0,
+            prizeId: 0,
             times: 0,
             actTimes: 0,
             isRolling: false,
@@ -127,29 +154,29 @@ class BrokeRage extends Component {
     }
     //获取抽奖信息
     getLotteryInfor() {
-        request({
-            url: '/api/lottery/6BjtwMFjTnZ/data/',//获取抽奖页面信息
-            success: ({ data, meta }) => {
-                // console.log(data)
-                // 判断用户是否有权限抽取奖品
-                if (data.status === 0) {
-                    // 可以抽
-                    this.setState({
-                        is_goto_lottery: true,
-                        finish_class_num: data.finish_class_num,
-                        lottery_number: data.lottery_number,
-                    })
-                } else {
-                    // 不可以抽奖
-                    this.setState({
-                        is_goto_lottery: false,
-                        needcourse: data.course,
-                        finish_class_num: data.finish_class_num,
-                        lottery_number: data.lottery_number,
-                    })
-                }
-            }
-        })
+        // request({
+        //     url: '/api/lottery/6BjtwMFjTnZ/data/',//获取抽奖页面信息
+        //     success: ({ data, meta }) => {
+        //         // console.log(data)
+        //         // 判断用户是否有权限抽取奖品
+        //         if (data.status === 0) {
+        //             // 可以抽
+        //             this.setState({
+        //                 is_goto_lottery: true,
+        //                 finish_class_num: data.finish_class_num,
+        //                 lottery_number: data.lottery_number,
+        //             })
+        //         } else {
+        //             // 不可以抽奖
+        //             this.setState({
+        //                 is_goto_lottery: false,
+        //                 needcourse: data.course,
+        //                 finish_class_num: data.finish_class_num,
+        //                 lottery_number: data.lottery_number,
+        //             })
+        //         }
+        //     }
+        // })
     }
     // 获取中奖纪录
     gotolist = () => {
@@ -164,41 +191,41 @@ class BrokeRage extends Component {
         }
         // this.state.isRolling为false的时候才能开始抽，不然会重复抽取，造成无法预知的后果
         if (!this.state.isRolling) {
-            request({
-                method: 'post',
-                url: '/api/lottery/6BjtwMFjTnZ/',//取抽
-                success: ({ data, meta }) => {
-                    let { award_id, award_info_id } = data;
-                    let proarray = List.filter(element => {
-                        return element.award_id === award_id
-                    });
-                    if (proarray.length > 1 || proarray.length === 0) {
-                        console.log('数据异常');
-                        return false;
-                    } else {
-                        console.log(award_id)
-                        this.setState({
-                            chose_pro: proarray[0],
-                            award_info_id
-                        })
-                    }
-                    // 点击抽奖之后，我个人做法是将于九宫格有关的状态都还原默认
-                    this.setState({
-                        activedId: '',
-                        prizeId: null,
-                        times: 0,
-                        actTimes: 0,
-                        isRolling: true
-                    }, () => {
-                        // 状态还原之后才能开始真正的抽奖
-                        this.handlePlay(proarray[0].id)
-                    })
+            // request({
+            //     method: 'post',
+            //     url: '/api/lottery/6BjtwMFjTnZ/',//取抽
+            //     success: ({ data, meta }) => {
+            //         let { award_id, award_info_id } = data;
+            //         let proarray = List.filter(element => {
+            //             return element.award_id === award_id
+            //         });
+            //         if (proarray.length > 1 || proarray.length === 0) {
+            //             console.log('数据异常');
+            //             return false;
+            //         } else {
+            //             console.log(award_id)
+            //             this.setState({
+            //                 chose_pro: proarray[0],
+            //                 award_info_id
+            //             })
+            //         }
+            //         // 点击抽奖之后，我个人做法是将于九宫格有关的状态都还原默认
+            //         this.setState({
+            //             activedId: '',
+            //             prizeId: null,
+            //             times: 0,
+            //             actTimes: 0,
+            //             isRolling: true
+            //         }, () => {
+            //             // 状态还原之后才能开始真正的抽奖
+            //             this.handlePlay(proarray[0].id)
+            //         })
 
-                }
-            })
+            //     }
+            // })
         }
     }
-    handlePlay = (prize) => {
+    handlePlay = (prize: number) => {
         // 阻止多次触发
         // 随机获取一个中奖ID
         // let prize = Math.floor(Math.random() * 7)
@@ -227,7 +254,7 @@ class BrokeRage extends Component {
                 return
             }
             // 以下是动画执行时对id的判断
-            if (this.state.activedId === '') {
+            if (this.state.activedId === null) {
                 num = 0
                 this.setState({
                     activedId: num
@@ -333,7 +360,7 @@ class BrokeRage extends Component {
                     <p>本活动最终解释权归属阿凡题</p>
                 </div>
                 {/* <WinPopup /> */}
-                {is_modal_visible && <Modal onClose={this.handleModalToggle} source={chose_pro} award_info_id={award_info_id} />}
+                {is_modal_visible && <Modal source={chose_pro} award_info_id={award_info_id} />}
             </div>
         );
     }

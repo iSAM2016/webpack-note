@@ -18,6 +18,7 @@
         }
     },
     "exclude": [
-        "node_modules" // 这个目录下的代码不会被 typescript 处理
+        "node_modules", // 这个目录下的代码不会被 typescript 处理
+        "build"
     ]
 }

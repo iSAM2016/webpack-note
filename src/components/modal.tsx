@@ -3,20 +3,22 @@ import React, {
 } from 'react'
 import { hashHistory } from 'react-router';
 import './modal.less';
+interface ModalProps {
+    source: any;
+    award_info_id: number
+}
 
-class Modal extends Component {
-    getpro = (self) => {
-        console.log(self.props)
+
+class Modal extends Component<ModalProps, {}>{
+    getpro = () => {
         hashHistory.push({
             pathname: '/fillinfor',
-            query: { id: self.props.award_info_id }
+            query: { id: this.props.award_info_id }
         })
     }
     close = () => {
-        this.props.onClose();
     }
     render() {
-        let self = this;
         const {
             isvirtual,
             name,
@@ -35,7 +37,7 @@ class Modal extends Component {
             } else {
                 return (
                     <div className="btnbox">
-                        <div className="btn" onClick={() => { self.getpro(self) }}>立即领取</div>
+                        {/* <div className="btn" onClick={() => { this.getpro() }}>立即领取</div> */}
                     </div>
                 )
             }

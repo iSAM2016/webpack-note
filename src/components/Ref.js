@@ -10,7 +10,7 @@ class UserAdd extends Component {
             newUser: '',
         }
     }
-    handleChange = (e) => {
+    handleChange = (e: any) => {
         // 这是不安全的写法
         // this.setState({quantity:this.state.quantity + 1})
         this.setState({ newUser: e.target.value });
@@ -127,7 +127,7 @@ class MyComponent extends Component {
 
 const MyComponentWidthData = widthPersistentData(MyComponent)
 
-class Hello extends Component {
+class Ref extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -153,4 +153,4 @@ class Hello extends Component {
     }
 }
 
-export default Hello
+export default Ref
