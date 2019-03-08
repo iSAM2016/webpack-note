@@ -1,0 +1,204 @@
+.goodstudent {
+  .banner {
+    width: 100%;
+    height: 8.18rem;
+    /* 409/50 */
+    background: url('../assets/banner/banner.png') no-repeat center center;
+    background-size: 100%;
+  } // 提示信息
+  .inforbox {
+    margin-top: .18rem/* 9/50 */
+    ;
+    margin-bottom: .72rem/* 36/50 */
+    ;
+    .inforbox-box {
+      display: flex;
+      width: 6.6rem/* 330/50 */
+      ;
+      height: .8rem/* 40/50 */
+      ;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 1);
+      border-radius: .4rem/* 20/50 */
+      ; // 小喇叭
+      .inforbox-speaker {
+        flex: 1.1rem/* 55/50 */
+        0 0;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        .icon {
+          height: .32rem/* 16/50 */
+          ;
+          width: .3rem/* 15/50 */
+          ;
+          background: url('../assets/speaker/speaker.png') no-repeat center center;
+        }
+      } // 通知内容
+      .inforbox-content {
+        position: relative;
+        overflow: hidden;
+        .inforbox-item {
+          height: .8rem/* 40/50 */
+          ;
+          line-height: .8rem;
+          font-size: .28rem/* 14/50 */
+          ;
+        }
+      }
+    }
+  } // 九宫格
+  .nine {
+    position: relative;
+    width: 100%;
+    .nine-container {
+      position: relative;
+      width: 7.1rem/* 355/50 */
+      ;
+      height: 7.72rem/* 386/50 */
+      ;
+      clear: both;
+      margin: 0 auto;
+      background: url('../assets/lottery/lottery.png') no-repeat center center;
+      background-size: 100%;
+      .nine-box {
+        position: absolute;
+        top: 1.12rem/* 56/50 */
+        ;
+        left: 1.08rem/* 54/50 */
+        ;
+        .nine-content {
+          float: left;
+          margin-right: .16rem/* 8/50 */
+          ;
+          margin-bottom: .16rem/* 8/50 */
+          ;
+          .nine-item {
+            float: left;
+            box-sizing: border-box;
+            background-color: #0ebaff;
+            width: 1.68rem/* 84/50 */
+            ;
+            height: 1.68rem/* 84/50 */
+            ;
+            border: .08rem/* 4/50 */
+            solid #0ebaff;
+            border-radius: .08rem/* 4/50 */
+            ;
+            &.active {
+              border: .08rem/* 4/50 */
+              solid #ffee00;
+            }
+            &.normal {
+              border: none;
+              background: url('../assets/btn/btn.png') no-repeat center center;
+            }
+            .nine-item_content {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              .nine-item_bgbox {
+                flex: 1.2rem/* 60/50 */
+                0 0;
+              }
+              .nine-item_bg {
+                &.iphone {
+                  height: .96rem/* 48/50 */
+                  ;
+                  width: .82rem/* 41/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .2rem/* 10/50 */
+                  ;
+                  background: url('../assets/iphone/iphone.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.data {
+                  height: .94rem/* 53/50 */
+                  ;
+                  width: 1.06rem/* 47/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .16rem/* 8/50 */
+                  ;
+                  background: url('../assets/data/data.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.twoclass {
+                  height: .92rem/* 46/50 */
+                  ;
+                  width: .86rem/* 43/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .2rem/* 10/50 */
+                  ;
+                  background: url('../assets/twoclass/twoclass.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.oneclass {
+                  height: .48rem/* 24/50 */
+                  ;
+                  width: .88rem/* 44/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .46rem/* 23/50 */
+                  ;
+                  background: url('../assets/oneclass/oneclass.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.fly {
+                  height: .58rem/* 29/50 */
+                  ;
+                  width: 1.24rem/* 62/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .36rem/* 18/50 */
+                  ;
+                  background: url('../assets/fly/fly.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.boss {
+                  height: .96rem/* 48/50 */
+                  ;
+                  width: .82rem/* 41/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .18rem/* 9/50 */
+                  ;
+                  background: url('../assets/boss/boss.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.englishclass {
+                  height: .96rem/* 48/50 */
+                  ;
+                  width: .94rem/* 47/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .22rem/* 11/50 */
+                  ;
+                  background: url('../assets/englishclass/englishclass.png') no-repeat center center;
+                  background-size: cover;
+                }
+                &.bodymony {
+                  height: .64rem/* 32/50 */
+                  ;
+                  widows: 1.22rem/* 61/50 */
+                  ;
+                  margin: 0 auto;
+                  margin-top: .4rem/* 20/50 */
+                  ;
+                  background: url('../assets/bodymony/bodymony.png') no-repeat center center;
+                  background-size: cover;
+                }
+              }
+              .nine-item_word {
+                color: white;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
