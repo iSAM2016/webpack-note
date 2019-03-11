@@ -4,8 +4,12 @@ const config = require("../config");
 const webpack = require("webpack");
 const HappyPack = require("happypack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
-const { NODE_ENV } = process.env;
+const happyThreadPool = HappyPack.ThreadPool({
+  size: os.cpus().length
+});
+const {
+  NODE_ENV
+} = process.env;
 const global = {
   __BASEURL__: JSON.stringify(config[NODE_ENV].baseurl) //baseurl
 };
@@ -21,20 +25,16 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"]
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8192,
-              outputPath:
-                NODE_ENV === "prod" || NODE_ENV === "uat" ? "static" : "",
-              name: "[hash].[ext]"
-            }
+        use: [{
+          loader: "url-loader",
+          options: {
+            limit: 8192,
+            outputPath: NODE_ENV === "prod" || NODE_ENV === "uat" ? "static" : "",
+            name: "[hash].[ext]"
           }
-        ]
+        }]
       },
       // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
       {
@@ -44,7 +44,11 @@ module.exports = {
       },
       //  pre 在正常loader执行前执行
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
+      }
     ]
   },
   externals: {
@@ -64,12 +68,12 @@ module.exports = {
       title: config.title,
       inject: true,
       template: "./index.html",
-      vconsole: config[NODE_ENV].isdev
-        ? `<script src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/3.0.0/vconsole.min.js"></script>`
-        : "",
-      vconsole_js: config[NODE_ENV].isdev
-        ? `<script>new VConsole()</script>`
-        : ""
+      vconsole: config[NODE_ENV].isdev ?
+        `<script src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/3.0.0/vconsole.min.js"></script>` :
+        "",
+      vconsole_js: config[NODE_ENV].isdev ?
+        `<script>new VConsole()</script>` :
+        ""
       // dll: config[NODE_ENV].isdev ? '<script src="./appActive/dll_vendor.js"></script>' : '',
     }),
     new webpack.DefinePlugin(global)

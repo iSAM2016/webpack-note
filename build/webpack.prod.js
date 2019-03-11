@@ -7,7 +7,9 @@ const rootPath = path.resolve(__dirname, '../');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const { NODE_ENV } = process.env
+const {
+    NODE_ENV
+} = process.env
 const source = config[NODE_ENV];
 
 
@@ -20,14 +22,13 @@ module.exports = merge(common, {
         filename: 'static/[name].[chunkhash].js',
         path: path.resolve(__dirname, `../${config.assetsSubDirectory}`),
         chunkFilename: '[name].bundle.js',
-        publicPath: source.isdev ? source.publicPath : `${source.baseurl}/${source.publicPath}${config.assetsSubDirectory}/`,  // `${baseurl}/${publicPath}${assetsSubDirectory}/` 
+        publicPath: source.isdev ? source.publicPath : `${source.baseurl}/${source.publicPath}${config.assetsSubDirectory}/`, // `${baseurl}/${publicPath}${assetsSubDirectory}/` 
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.css$/,
                 use: [{
-                    loader: 'css-loader',// translates CSS into CommonJS
+                    loader: 'css-loader', // translates CSS into CommonJS
                 }],
             }, {
                 test: /\.less$/,
@@ -36,6 +37,7 @@ module.exports = merge(common, {
                     use: ['css-loader', 'postcss-loader', 'less-loader']
                 })
             },
+            //处理顺序为从后到前，即先交给 sass-loader 处理，再将结果交给 css-loader,最后交给 style - loader
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
@@ -91,4 +93,3 @@ module.exports = merge(common, {
         })
     ],
 })
-

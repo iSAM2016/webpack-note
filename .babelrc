@@ -1,12 +1,19 @@
-{
+/**
+ * 可以在options 配资
+ */
+{ // 插件
+    // "babel-polyfill": 高级语法
     "plugins": [
         "react-hot-loader/babel",
         "@babel/plugin-transform-flow-strip-types",
+        "@babel/plugin-transform-runtime", // 可以执行promise gentor
         "@babel/plugin-proposal-class-properties"
     ],
+    // 预设
+    // "@babel/preset-env": "^7.0.0-beta.44", // es6=> es5
     "presets": [
         [
-            "@babel/env",
+            "@babel/env", // 可以转化所有标准
             {
                 "modules": false,
                 "targets": {
