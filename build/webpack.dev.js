@@ -13,9 +13,9 @@ module.exports = merge(common, {
     devtool: 'source-map',
     entry: {
         app: [
-            'react-hot-loader/patch',
-            'webpack-dev-server/client?http://localhost:8080',
-            'webpack/hot/only-dev-server',
+            // 'react-hot-loader/patch',
+            // 'webpack-dev-server/client?http://localhost:8080',
+            // 'webpack/hot/only-dev-server',
             'babel-polyfill',
             './src/index.js'
         ]
@@ -61,10 +61,6 @@ module.exports = merge(common, {
         }
     },
     devServer: {
-        // before(app) {
-        //     //  mork，在 dev-server 之前
-        //     app.get()
-        // },
         publicPath: '/',
         watchOptions: {
             ignored: /node_modules/,
