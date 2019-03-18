@@ -1,14 +1,10 @@
-const merge = require('webpack-merge')
-const common = require('./webpack.common.js')
-const webpack = require('webpack')
-const path = require('path')
-const {
-    resolve
-} = require('path')
-const config = require('../config')
-const {
-    NODE_ENV
-} = process.env
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
+const webpack = require('webpack');
+const path = require('path');
+const { resolve } = require('path');
+const config = require('../config');
+const { NODE_ENV } = process.env;
 
 module.exports = merge(common, {
     mode: 'development',
@@ -21,49 +17,54 @@ module.exports = merge(common, {
             'webpack-dev-server/client?http://localhost:8080',
             'webpack/hot/only-dev-server',
             'babel-polyfill',
-            './src/index.tsx'
+            './src/index.js'
         ]
     },
     output: {
         filename: '[name].bundle.js',
-        publicPath: config[NODE_ENV].publicPath,
+        publicPath: config[NODE_ENV].publicPath
         // path: resolve(__dirname, 'dist') //绝对路径
     },
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.less$/,
-                use: [{
-                    loader: 'style-loader' // creates style nodes from JS strings
-                }, {
-                    loader: 'css-loader', // translates CSS into CommonJS 会解析文件的@import
-                    options: {
-                        modules: true,
-                        localIdentName: '[name]__[local]-[hash:base64:5]'
+                use: [
+                    {
+                        loader: 'style-loader' // creates style nodes from JS strings
+                    },
+                    {
+                        loader: 'css-loader', // translates CSS into CommonJS 会解析文件的@import
+                        options: {
+                            modules: true,
+                            localIdentName: '[name]__[local]-[hash:base64:5]'
+                        }
+                    },
+                    {
+                        loader: 'less-loader' // compiles Less to CSS
                     }
-                }, {
-                    loader: 'less-loader' // compiles Less to CSS
-                }]
+                ]
             },
             {
                 test: /\.css$/,
-                use: [{
-                    loader: 'css-loader', // translates CSS into CommonJS
-                }],
-            },
+                use: [
+                    {
+                        loader: 'css-loader' // translates CSS into CommonJS
+                    }
+                ]
+            }
         ]
     },
     optimization: {
         splitChunks: {
-            chunks: "all"
+            chunks: 'all'
         }
     },
     devServer: {
-        before(app) {
-            //  mork，在 dev-server 之前
-            app.get()
-
-
-        },
+        // before(app) {
+        //     //  mork，在 dev-server 之前
+        //     app.get()
+        // },
         publicPath: '/',
         watchOptions: {
             ignored: /node_modules/,
@@ -79,5 +80,4 @@ module.exports = merge(common, {
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin() // 热模块替换插件
     ]
-
-})
+});
