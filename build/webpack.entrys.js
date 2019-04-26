@@ -46,11 +46,9 @@ module.exports = {
     },
     //输出的文件名 合并以后的js会命名为bundle.js
     // 如果entry 是一个string或array 就会生成一个chunk,这时chunk 的名字是main
-<<<<<<< HEAD
     // 如果entry 是个object 就会生成多个
     // Module：模块，在 Webpack 里一切皆模块，一个模块对应着一个文件。Webpack 会从配置的 Entry 开始递归找出所有依赖的模块。
     // Chunk：代码块，一个 Chunk 由多个模块组合而成，用于代码合并与分割
-=======
     // 如果entry 是个object 就会生成多个 chunk
     //项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
     // string array object
@@ -70,7 +68,6 @@ module.exports = {
      * })
      * }
      */
->>>>>>> 7ea76dfb5659555dfe0efe5b26e893b6e6fd56e8
     output: {
         filename: '[name].bundle.js', // 如果是[name] 默认输入main.js
         path: path.resolve(__dirname, '../src/many/dist') //绝对路径
@@ -105,7 +102,6 @@ module.exports = {
     // dev server 会把文件放到内存中
     module: {
         // 优化那些不进行模块的解析
-<<<<<<< HEAD
         // noParse: '/jQuery', //  自己写的
         rules: [
             // {
@@ -142,22 +138,6 @@ module.exports = {
                 ]
             },
             {
-=======
-        noParse: '/jQuery', //  自己写的
-        rules: [{
-                // 打包第三方库
-                test: require.resolve('jquery'),
-                use: {
-                    loader: 'expose-loader?$',
-                },
-                // 在loader 中传入很多参数的时候需要一个Object来描述，options
-                options: {
-                    $: ''
-                },
-                //enforce :’post ’的含义是将该 Loader 的执行顺序放到最后
-                //enforce 的值还可以是 pre，代表将 Loader 的执行顺序放到最前面 
-            }, {
->>>>>>> 7ea76dfb5659555dfe0efe5b26e893b6e6fd56e8
                 test: /\.js$/,
                 use: {
                     loader: 'babel-loader'
@@ -221,8 +201,6 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin() // 热模块替换插件
     ]
 };
-<<<<<<< HEAD
-=======
 /**
    * optimization: {
       splitChunks: {
@@ -249,4 +227,3 @@ module.exports = {
     }
   },
    */
->>>>>>> 7ea76dfb5659555dfe0efe5b26e893b6e6fd56e8

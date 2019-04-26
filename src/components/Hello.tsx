@@ -1,12 +1,18 @@
-import React, {
-    Component,
-} from 'react'
+import React, { Component } from 'react';
 import { func } from '_@types_prop-types@15.5.5@@types/prop-types';
-export interface HelloProps { compiler: string; framework: string }
-export interface HelloState { name: string, age: number, like: Array<{ uid: number, address: string }>, selectedValue: string }
+export interface HelloProps {
+    compiler: string;
+    framework: string;
+}
+export interface HelloState {
+    name: string;
+    age: number;
+    like: Array<{ uid: number; address: string }>;
+    selectedValue: string;
+}
 // 定义对象的(函数参数))
 interface SquareConfig {
-    color?: string;// 不去定字段
+    color?: string; // 不去定字段
     width?: number;
 }
 
@@ -20,7 +26,7 @@ let mySearch: SearchFunc;
 mySearch = (source, subString) => {
     let result = source.search(subString);
     return result > -1;
-}
+};
 
 // 只读
 interface Point {
@@ -38,12 +44,11 @@ class Greeter {
         this.greeting = message;
     }
     greet() {
-        return "Hello, " + this.greeting;
+        return 'Hello, ' + this.greeting;
     }
 }
 
-let greeter = new Greeter("world");
-
+let greeter = new Greeter('world');
 
 class Animal {
     public name: string;
@@ -60,14 +65,15 @@ class Animal {
 let cat = new Animal('oo');
 
 class Dog extends Animal {
-    constructor(name: string) { super(name); }
+    constructor(name: string) {
+        super(name);
+    }
     bark() {
         console.log('Woof! Woof!');
     }
 }
 
 const dog = new Dog('9');
-
 
 class Hello extends Component<HelloProps, HelloState> {
     constructor(props: HelloProps) {
@@ -76,14 +82,14 @@ class Hello extends Component<HelloProps, HelloState> {
             age: 123,
             name: 'isam2016',
             like: [],
-            selectedValue: '',
-        }
+            selectedValue: ''
+        };
     }
     /**
      *  函数最终返回的值
-     *  { name: string, age: number } 
+     *  { name: string, age: number }
      */
-    addLike = (config: SquareConfig): { name: string, age: number } => {
+    addLike = (config: SquareConfig): { name: string; age: number } => {
         let newAquence = { name: 'isam2018', age: 100 };
         if (config.color) {
             newAquence.name = 'isam2016';
@@ -92,31 +98,46 @@ class Hello extends Component<HelloProps, HelloState> {
             newAquence.age = 99;
         }
         return newAquence;
-    }
+    };
     chnageNmae = (event: React.FormEvent<HTMLSelectElement>): void => {
         var safeSearchTypeValue: string = event.currentTarget.value;
         console.log(safeSearchTypeValue); // in chrome => B
         this.setState((proState, props) => {
             return {
                 selectedValue: safeSearchTypeValue
-            }
-        })
-    }
-    object = ({ a, b }: { a: string, b: number }): void => {
+            };
+        });
+    };
+    object = ({ a, b }: { a: string; b: number }): void => {
         console.log(a);
-    }
+    };
     render() {
         return (
             <div>
-                hellow  form {this.props.compiler} and {this.props.framework}
+                hellow form {this.props.compiler} and {this.props.framework}
                 myname is {this.state.age}, name is {this.state.name}
-                <div><button onClick={() => { this.addLike }}>add like</button></div>
-                <select className="form-control" id="searchType" onChange={e => this.chnageNmae(e)} value={this.state.selectedValue}>
+                <div>
+                    <button
+                        onClick={() => {
+                            this.addLike;
+                        }}
+                    >
+                        add like
+                    </button>
+                </div>
+                <select
+                    className="form-control"
+                    id="searchType"
+                    onChange={e => this.chnageNmae(e)}
+                    value={this.state.selectedValue}
+                >
                     <option value="A">A</option>
                     <option value="B">B</option>
                 </select>
                 <h1>{this.state.selectedValue}</h1>
-                <button onClick={() => this.object({ a: '12', b: 0 })}>对象及解构</button>
+                <button onClick={() => this.object({ a: '12', b: 0 })}>
+                    对象及解构
+                </button>
             </div>
         );
     }

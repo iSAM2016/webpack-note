@@ -1,44 +1,3 @@
-# react& webpck& ts
-
-## webpack 基础
-
-1. dllplugin 动态链接库
-2. exclude include
-3. ignorePlug
-4. happypack 默认开启 4 个线程 多线程打包 进程里面包括了一条主线程，
-5. webpack 3 需要处理一些情况， tree shaking 作用域处理 scope hosting
-6. expose-loader 可以暴露自己写的包
-
-## weboack 优化
-
--   1.  dllplugin 动态链接库
--   2. exclude include
--   3. ignirplugin
--   4. happypack 默认开启四个线程 多线程打包 进程里包括了一条主线程 node 中可以用于
--   5. webpack 3 需要处理一些情况 tree shaking 作用处理 sope hosting
--   6. 提取 公共的代码 splitChunks
-
-## 引入全局变量
-
-1.  expose-loader
-2.  providePlugin
-3.  externals
-
-### tapable
-
-webpack 中的插件机制，webpack 的实现插件机制大体方式是
-
-1. 创建
-2. 注册
-3. 调用
-
-Webpack 本质上是一种事件流的机制，它的工作流程就是将各个插件串联起来，而实现这一切的核心就是 Tapable，webpack 中最核心的负责编译的 Compiler 和负责创建 bundle 的 Compilation 都是 Tapable 的实例
-
-## 动态加载实现原理
-
-```
-app.build.js
-
 (function(source) {
     // webpackBootstrap
     // install a JSONP callback for chunk loading
@@ -321,26 +280,10 @@ app.build.js
     }
 );
 
-```
-
-```
-0.build.js
-(window['webpackJsonp'] = window['webpackJsonp'] || []).push([
-    [0],
-    {
-        './lodash.js': function(
-            module,
-            __webpack_exports__,
-            __webpack_require__
-        ) {
-            'use strict';
-            eval(
-                '__webpack_require__.r(__webpack_exports__);\nlet object = {\n name: 12\n};\n __webpack_exports__["default"] = (object);'
-            );
-        }
-    }
-]);
-
-```
-
-## webpack 实现
+/****
+ * 1. window[windowJson].push=webpackJsonCallBack; 把json 的回调挂了在window[windowJson].push 上
+ * 2. 调用 __webpack_require__.e 告诉内部加载0.js 并且返回一个promise all
+ * 3. 把 modules 的属性上吧当前0.js 放到modules 的对象内 把后加载的模块放到了modules
+ * 4. 引用加载的模块
+ * 5. 下一步取值
+ */

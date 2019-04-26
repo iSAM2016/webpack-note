@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./lodash.js"],"names":[],"mappings":";;;;;;;;;;AAAA;AAAA;AACA;AACA;AACe,qEAAM,EAAC","file":"0.bundle.js","sourcesContent":["let object = {\n    name: 12\n};\nexport default object;\n"],"sourceRoot":""}

@@ -19,7 +19,7 @@
     "watch": "webpack --watch",
     "dll": "webpack --config  build/webpack.dll.config.js --progress --colors ",
     "entrs": "webpack --config  build/webpack.entrys.js  --progress --colors ",
-    "dev": "webpack --config  webpack.config.js  --progress --colors ",
+    "dev": "export  NODE_ENV=dev  && webpack --config  build/webpack.dev.js  --progress --colors ",
     "build": "export NODE_ENV=dev && webpack --config build/webpack.prod.js ",
     "build:dev": "export NODE_ENV=dev && webpack --config build/webpack.prod.js && ./deploy/sit.js",
     "build:uat": "export NODE_ENV=uat && webpack --config build/webpack.prod.js && node ./deploy/toOss.js && ./deploy/uat.js",

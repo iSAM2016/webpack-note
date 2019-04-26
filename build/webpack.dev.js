@@ -10,14 +10,15 @@ module.exports = merge(common, {
     mode: 'development',
     // 源码映射 把当期的源代码和打包后的代码进行一个映射
     // 在生产环境中调试
-    devtool: 'source-map',
+    // devtool: 'source-map',
     entry: {
         app: [
             // 'react-hot-loader/patch',
             // 'webpack-dev-server/client?http://localhost:8080',
             // 'webpack/hot/only-dev-server',
-            'babel-polyfill',
-            './src/index.js'
+            // 'babel-polyfill',
+            // './src/index.js'
+            './dync.js'
         ]
     },
     output: {
@@ -56,9 +57,9 @@ module.exports = merge(common, {
         ]
     },
     optimization: {
-        splitChunks: {
-            chunks: 'all'
-        }
+        // splitChunks: {
+        //     chunks: 'all'
+        // }
     },
     devServer: {
         publicPath: '/',
@@ -73,7 +74,7 @@ module.exports = merge(common, {
         port: config[NODE_ENV].port
     },
     plugins: [
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin() // 热模块替换插件
+        // new webpack.NamedModulesPlugin(),
+        // new webpack.HotModuleReplacementPlugin() // 热模块替换插件
     ]
 });
