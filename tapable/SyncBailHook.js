@@ -1,17 +1,7 @@
-/*
- *  SyncHook 的实现原理
- * 串行同步执行
- * 不必关心返回值
- * 
- * @Author: isam2016 
- * @Date: 2019-04-28 17:18:40 
- * @Last Modified by: isam2016
- * @Last Modified time: 2019-04-28 17:24:21
+/****
+ * 串行同步执行，有一个返回值不为null 则跳过剩下的逻辑
  */
-
-
-
-class SyncHook {
+class SyncBailHook {
     constructor() {
         this.tasks = [];
     }
@@ -19,16 +9,22 @@ class SyncHook {
         this.tasks.push(task);
     }
     call() {
-        this.tasks.forEach(task => task(...arguments));
+        let i = 0,
+            ret = "";
+        do {
+            ret = this.tasks[i++](...arguments);
+        } while (!ret && i < this.tasks.length);
+
     }
 }
 
-let queue = new SyncHook(['name']);
+let queue = new SyncBailHook(['name']);
 queue.tap('1', function (name) {
     console.log(name, 1);
 });
 queue.tap('2', function (name) {
     console.log(name, 2);
+    return 'wor';
 });
 queue.tap('3', function (name) {
     console.log(name, 3);
