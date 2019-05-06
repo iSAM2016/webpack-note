@@ -1,5 +1,10 @@
 # react& webpck& ts
 
+├── /dync/ # 异步加载代码
+├── /tapable/ # tapable
+├── /origin/ # 实现 webpack 的代码
+├── webpack.js/ # webpack 实现
+
 ## webpack 基础
 
 1. dllplugin 动态链接库
@@ -33,6 +38,14 @@ webpack 中的插件机制，webpack 的实现插件机制大体方式是
 3. 调用
 
 Webpack 本质上是一种事件流的机制，它的工作流程就是将各个插件串联起来，而实现这一切的核心就是 Tapable，webpack 中最核心的负责编译的 Compiler 和负责创建 bundle 的 Compilation 都是 Tapable 的实例
+
+## webpack 实现
+
+打包 origin 下的文件
+
+`npx webpack`
+
+可以在当前的 文件夹下执行 `npm link zf-pack`, 链接到 webpack-lick(zf-pack)，可以执行`npx zf-pack`
 
 ## 动态加载实现原理
 
@@ -342,5 +355,3 @@ app.build.js
 ]);
 
 ```
-
-## webpack 实现

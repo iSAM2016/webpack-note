@@ -1,5 +1,4 @@
-import _ from './index.js/index.js';
-console.log(_.name);
+import _ from './index.js';
 
 var block = document.getElementById('root');
 block.addEventListener('click', function() {

@@ -18,7 +18,7 @@ module.exports = merge(common, {
             // 'webpack/hot/only-dev-server',
             // 'babel-polyfill',
             // './src/index.js'
-            './dync.js'
+            './dync/dync.js'
         ]
     },
     output: {
