@@ -86,25 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./origin/a.js":
-/*!*********************!*\
-  !*** ./origin/a.js ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("let b = __webpack_require__(/*! ./base/b.js */ \"./origin/base/b.js\");\nmodule.exports = 'a' + b;\n\n\n//# sourceURL=webpack:///./origin/a.js?");
-
-/***/ }),
-
-/***/ "./origin/base/b.js":
-/*!**************************!*\
-  !*** ./origin/base/b.js ***!
-  \**************************/
+/***/ "./loaders/inline-loader.js!./origin/a.js":
+/*!************************************************!*\
+  !*** ./loaders/inline-loader.js!./origin/a.js ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./origin/base/b.js?");
+eval("/**'jjj';\n**/// let b = require('./base/b.js');\n// require('./style.less');\n// module.exports = 'a' + b;\n\n\n//# sourceURL=webpack:///./origin/a.js?./loaders/inline-loader.js");
 
 /***/ }),
 
@@ -115,7 +104,7 @@ eval("\n\n//# sourceURL=webpack:///./origin/base/b.js?");
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("let str = __webpack_require__(/*! ./a.js */ \"./origin/a.js\");\nconsole.log(str);\n\n\n//# sourceURL=webpack:///./origin/index.js?");
+eval("/**'jjj';\n**/// let str = require('./a.js');\n// console.log(str);\n\nconsole.log('hello');\nlet str = __webpack_require__(/*! inline-loader!./a.js */ \"./loaders/inline-loader.js!./origin/a.js\");\n\n\n//# sourceURL=webpack:///./origin/index.js?");
 
 /***/ })
 

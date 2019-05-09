@@ -41,11 +41,13 @@ Webpack 本质上是一种事件流的机制，它的工作流程就是将各个
 
 ## webpack 实现
 
-打包 origin 下的文件
+打包测试文件 origin 下的文件
 
-`npx webpack`
+webpack:`npx webpack`
 
-可以在当前的 文件夹下执行 `npm link zf-pack`, 链接到 webpack-lick(zf-pack)，可以执行`npx zf-pack`
+可以在当前的 文件夹下执行 `npm link zf-pack`, 链接到 webpack-lick(zf-pack)，
+
+zf-pack: `npx zf-pack`
 
 ## 动态加载实现原理
 
