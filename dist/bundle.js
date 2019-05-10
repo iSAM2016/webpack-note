@@ -86,14 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./loaders/inline-loader.js!./origin/a.js":
-/*!************************************************!*\
-  !*** ./loaders/inline-loader.js!./origin/a.js ***!
-  \************************************************/
+/***/ "./loaders/css-loader.js!./loaders/less-loader.js!./origin/style.less":
+/*!****************************************************************************!*\
+  !*** ./loaders/css-loader.js!./loaders/less-loader.js!./origin/style.less ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("/**'jjj';\n**/// let b = require('./base/b.js');\n// require('./style.less');\n// module.exports = 'a' + b;\n\n\n//# sourceURL=webpack:///./origin/a.js?./loaders/inline-loader.js");
+eval("let list=[]\r\nlist.push(\"body {\\\\n  background-color: red;\\\\n}\\\\n\")\r\nmodule.exports = list.join('')\n\n//# sourceURL=webpack:///./origin/style.less?./loaders/css-loader.js!./loaders/less-loader.js");
 
 /***/ }),
 
@@ -104,7 +104,18 @@ eval("/**'jjj';\n**/// let b = require('./base/b.js');\n// require('./style.less
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("/**'jjj';\n**/// let str = require('./a.js');\n// console.log(str);\n\nconsole.log('hello');\nlet str = __webpack_require__(/*! inline-loader!./a.js */ \"./loaders/inline-loader.js!./origin/a.js\");\n\n\n//# sourceURL=webpack:///./origin/index.js?");
+eval("/**'jjj';\n**/// let str = require('./a.js');\n// console.log(str);\n__webpack_require__(/*! ./style.less */ \"./origin/style.less\");\nconsole.log('hello');\n// import a from './bg_dark.png';\n// let str = require('inline-loader!./a.js');\n\n\n//# sourceURL=webpack:///./origin/index.js?");
+
+/***/ }),
+
+/***/ "./origin/style.less":
+/*!***************************!*\
+  !*** ./origin/style.less ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\n    let style = document.createElement('style');\n    style.innerHTML = __webpack_require__(/*! !../loaders/css-loader.js!../loaders/less-loader.js!./style.less */ \"./loaders/css-loader.js!./loaders/less-loader.js!./origin/style.less\");\n    document.head.appendChild(style);\n    \n\n//# sourceURL=webpack:///./origin/style.less?");
 
 /***/ })
 
