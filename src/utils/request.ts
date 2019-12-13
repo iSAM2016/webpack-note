@@ -1,5 +1,17 @@
 import * as $ from 'jquery';
-export default ({ url, method = 'get', success, data, fn }: { url: string, method: string, success: any, data: object, fn: any }) => {
+export default ({
+    url,
+    method = 'get',
+    success,
+    data,
+    fn
+}: {
+    url: string;
+    method: string;
+    success: any;
+    data: object;
+    fn: any;
+}) => {
     $.ajax({
         method,
         data,
@@ -11,17 +23,14 @@ export default ({ url, method = 'get', success, data, fn }: { url: string, metho
         },
         // 允许跨域
         crossDomain: true,
-        url: '//wb.lejent.cn' + url,
+        url: '//wb.XXX.cn' + url,
         success: (res: any) => {
-            let resObj = JSON.parse(res)
+            let resObj = JSON.parse(res);
             // console.log('res', resObj)
             if (resObj[0] && resObj[0].msg === '请先登录') {
-
             } else {
-                success(resObj)
+                success(resObj);
             }
         }
-    })
-
-}
-
+    });
+};

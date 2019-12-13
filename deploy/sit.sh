@@ -1,8 +1,8 @@
 #!/usr/bin/expect
-spawn rsync -avzP ./appActive/ suhailong@dev01.bj.lejent.cc:/data/static/wb/appActive/
-#spawn rsync -avzP ./responsive lizhuofeng@dev229.bj.lejent.cc:/data/static/wb/
+spawn rsync -avzP ./appActive/ XXX@dev01.bj.XXX.cc:/data/static/wb/appActive/
+#spawn rsync -avzP ./responsive XXX@dev229.bj.XXX.cc:/data/static/wb/
 
-expect "suhailong@dev01.bj.lejent.cc's password:"
-#expect "lizhuofeng@dev229.bj.lejent.cc's password:"
-send "afanti1801\r"
+expect "XXX@dev01.bj.XXX.cc's password:"
+#expect "XXX@dev229.bj.XXX.cc's password:"
+send "XXX1801\r"
 interact
